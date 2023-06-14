@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/parentLayout"
+    android:padding="20dp"
+    >
+
+    <TextView
+        android:id="@+id/txtSurah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama surah"
+        style="@style/TextAppearance.AppCompat.Title"
+        />
+
+    <TextView
+        android:id="@+id/txtArtiSurah"
+        android:layout_below="@+id/txtSurah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="arti surah"
+        />
+
+    <TextView
+        android:id="@+id/txtSurahArab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Surah Arab"
+        android:layout_alignParentEnd="true"/>
+
+</RelativeLayout>
