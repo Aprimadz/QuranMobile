@@ -2,10 +2,8 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/parentLayout"
-    android:padding="20dp"
-    >
+    android:layout_height="wrap_content"
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/txtSurah"
@@ -28,6 +26,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Surah Arab"
+        android:textDirection="anyRtl"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:layout_alignParentEnd="true"/>
 
 </RelativeLayout>

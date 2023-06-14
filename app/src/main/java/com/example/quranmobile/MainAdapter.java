@@ -1,6 +1,6 @@
 package com.example.quranmobile;
 
-import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,38 +9,45 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.quranmobile.models.ChaptersItem;
+import com.example.quranmobile.SurahModels.ChaptersItem;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.viewHolder> {
 
-    private List<ChaptersItem> results = new ArrayList<>();
-    private Context context;
-//    private AdapterListener listener;
+    private List<ChaptersItem> results;
+
 
     public MainAdapter(List<ChaptersItem> results){
         this.results = results;
-//        this.context = context;
+//
     }
 
     @NonNull
     @Override
     public MainAdapter.viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new viewHolder(
-                LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,parent,false)
-        );
+                LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,parent,false));
 
     }
 
     @Override
     public void onBindViewHolder(@NonNull MainAdapter.viewHolder holder, int position) {
         ChaptersItem result = results.get(position);
+        holder.txtNamaSurah.setText(result.getNameSimple());
+        holder.txtArtiNamaSurah.setText(result.getTranslatedName().getName());
+        holder.txtNamaSurahArab.setText(result.getNameArabic());
 
-       holder.txtNamaSurah.setText(result.getNameSimple());
-       holder.txtNamaSurahArab.setText(result.getNameArabic());
-       holder.txtArtisurah.setText(result.getTranslatedName().getName());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(holder.itemView.getContext(),DetailSurahActivity.class);
+
+                intent.putExtra("id",result.getId());
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -49,14 +56,11 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.viewHolder> {
     }
 
     public class viewHolder extends RecyclerView.ViewHolder {
-
-
-        TextView txtNamaSurah,txtArtisurah,txtNamaSurahArab;
+        TextView txtNamaSurah,txtArtiNamaSurah,txtNamaSurahArab;
         public viewHolder(@NonNull View itemView) {
             super(itemView);
-
             txtNamaSurah = itemView.findViewById(R.id.txtSurah);
-            txtArtisurah = itemView.findViewById(R.id.txtArtiSurah);
+            txtArtiNamaSurah = itemView.findViewById(R.id.txtArtiSurah);
             txtNamaSurahArab = itemView.findViewById(R.id.txtSurahArab);
         }
     }
