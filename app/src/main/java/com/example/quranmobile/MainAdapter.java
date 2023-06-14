@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quranmobile.SurahModels.ChaptersItem;
@@ -38,13 +39,13 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.viewHolder> {
         holder.txtArtiNamaSurah.setText(result.getTranslatedName().getName());
         holder.txtNamaSurahArab.setText(result.getNameArabic());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.myCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(holder.itemView.getContext(),DetailSurahActivity.class);
+                Intent intent = new Intent(holder.myCardView.getContext(),DetailSurahActivity.class);
 
                 intent.putExtra("id",result.getId());
-                holder.itemView.getContext().startActivity(intent);
+                holder.myCardView.getContext().startActivity(intent);
             }
         });
 
@@ -56,9 +57,12 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.viewHolder> {
     }
 
     public class viewHolder extends RecyclerView.ViewHolder {
+
+        CardView myCardView;
         TextView txtNamaSurah,txtArtiNamaSurah,txtNamaSurahArab;
         public viewHolder(@NonNull View itemView) {
             super(itemView);
+            myCardView = itemView.findViewById(R.id.myCardView);
             txtNamaSurah = itemView.findViewById(R.id.txtSurah);
             txtArtiNamaSurah = itemView.findViewById(R.id.txtArtiSurah);
             txtNamaSurahArab = itemView.findViewById(R.id.txtSurahArab);
