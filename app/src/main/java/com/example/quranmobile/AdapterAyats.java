@@ -32,6 +32,7 @@ public class AdapterAyats extends RecyclerView.Adapter<AdapterAyats.AyatViewHold
         VersesItem result = results.get(position);
 
         holder.txtAyat.setText(result.getTextUthmani());
+        holder.txtNomorAyat.setText(String.valueOf(position+1));
 
     }
 
@@ -42,9 +43,10 @@ public class AdapterAyats extends RecyclerView.Adapter<AdapterAyats.AyatViewHold
 
     public class AyatViewHolder extends RecyclerView.ViewHolder{
 
-        TextView txtAyat, txtTerjemahAyat;
+        TextView txtAyat, txtTerjemahAyat,txtNomorAyat;
         public AyatViewHolder(@NonNull View itemView) {
             super(itemView);
+            txtNomorAyat = itemView.findViewById(R.id.txtNoAyat);
             txtAyat = itemView.findViewById(R.id.txtAyat);
             txtTerjemahAyat =itemView.findViewById(R.id.txtTerjemahanAyat);
         }
