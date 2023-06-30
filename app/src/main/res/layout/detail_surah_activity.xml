@@ -8,6 +8,65 @@
     android:orientation="vertical"
     tools:context=".DetailSurahActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:padding="20dp"
+        android:background="@drawable/lightbg">
+
+        <TextView
+            android:id="@+id/txtJudul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Judul Surat"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:paddingBottom="5dp"
+            android:textColor="@color/black"/>
+
+
+        <TextView
+            android:id="@+id/txtJmlhAyat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Jumlah Ayat : "
+            android:textSize="18sp"
+            android:layout_below="@+id/txtJudul"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/txtNamaArab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nama Arab : "
+            android:textSize="18sp"
+            android:layout_below="@+id/txtJmlhAyat"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/txtTempatDiturunkan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tempat Diturunkan : "
+            android:textSize="18sp"
+            android:layout_below="@+id/txtNamaArab"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:id="@+id/btnAudio"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="Play"
+            android:background="@drawable/round_button"
+            android:textColor="@color/black"
+            android:layout_marginLeft="290dp"
+            android:layout_below="@+id/txtTempatDiturunkan"/>
+
+    </RelativeLayout>
+
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewAyat"
